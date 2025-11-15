@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Phase 4: The final results screen -->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.ExamResultsController"
+      alignment="CENTER" spacing="20"
+      style="-fx-background-color: #f4f4f4; -fx-padding: 30; -fx-font-family: 'Arial';">
+
+    <Label text="Exam Submitted!"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #28a745;"/>
+
+    <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #ffffff; -fx-padding: 30; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;">
+        <Label fx:id="examNameLabel" text="[Exam Name]" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+        <Label text="Your Score (from auto-graded questions):" style="-fx-font-size: 16px; -fx-padding: 10 0 0 0;"/>
+
+        <Label fx:id="scoreLabel" text="[Score] / [Total]"
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #007bff;"/>
+
+        <Label fx:id="gradingStatusLabel" text="" style="-fx-font-size: 14px; -fx-text-fill: #555; -fx-wrap-text: true; -fx-text-alignment: center;"/>
+    </VBox>
+
+    <Button fx:id="closeButton" text="Back to Dashboard" onAction="#handleClose"
+            style="-fx-font-size: 16px; -fx-padding: 10 20; -fx-background-color: #007bff; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;"/>
+
+</VBox>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Phase 2: Student confirms they are ready to start -->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.ExamInstructionsController"
+      alignment="CENTER" spacing="20"
+      style="-fx-background-color: #f4f4f4; -fx-padding: 30; -fx-font-family: 'Arial';">
+
+    <Label fx:id="titleLabel" text="Exam Instructions"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+    <VBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;">
+        <Label fx:id="examNameLabel" text="Exam: [Exam Name]" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <Label fx:id="detailsLabel" text="Duration: [X] minutes" style="-fx-font-size: 16px;"/>
+        <Label fx:id="countLabel" text="Number of Questions: [Y]" style="-fx-font-size: 16px;"/>
+
+        <Label text="This is a timed exam. Once you begin, the timer will start and you cannot pause it."
+               style="-fx-font-size: 14px; -fx-text-fill: #c0392b; -fx-wrap-text: true;"/>
+
+        <Label text="Click 'Begin Test' when you are ready." style="-fx-font-size: 14px;"/>
+    </VBox>
+
+    <Label fx:id="statusLabel" text="" style="-fx-font-size: 14px; -fx-text-fill: red;"/>
+
+    <HBox alignment="CENTER" spacing="20" style="-fx-padding: 10 0 0 0;">
+        <Button fx:id="beginButton" text="Begin Test" onAction="#handleBeginTest"
+                style="-fx-font-size: 16px; -fx-padding: 10 20; -fx-background-color: #28a745; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;"/>
+        <Button fx:id="cancelButton" text="Cancel" onAction="#handleCancel"
+                style="-fx-font-size: 16px; -fx-padding: 10 20; -fx-background-color: #555; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;"/>
+    </HBox>
+
+</VBox>
+

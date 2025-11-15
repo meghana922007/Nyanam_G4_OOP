@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.StudentResourcesController"
+      alignment="TOP_CENTER"
+      stylesheets="@StudentResources.css" styleClass="root">
+
+    <Label text="Study Materials and Resources" styleClass="page-title"/>
+    <Label text="Here you can find all the study materials uploaded by your teachers." styleClass="page-subtitle"/>
+
+    <TableView fx:id="resourceTable" prefHeight="400" VBox.vgrow="ALWAYS" styleClass="table-view">
+        <columns>
+            <TableColumn fx:id="titleCol" text="Title" prefWidth="250"/>
+            <TableColumn fx:id="topicCol" text="Topic" prefWidth="120"/>
+            <TableColumn fx:id="subtopicCol" text="Subtopic" prefWidth="120"/>
+
+            <TableColumn fx:id="typeCol" text="File Type" prefWidth="80" styleClass="centered-column"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="action-bar">
+        <Label fx:id="statusLabel" text="" styleClass="status-label" HBox.hgrow="ALWAYS"/>
+
+        <VBox HBox.hgrow="ALWAYS"/> <Button fx:id="openButton" text="Open Selected File" onAction="#handleOpenFile"
+                                            styleClass="open-button"/>
+
+        <Button fx:id="backButton" text="Back to Dashboard" onAction="#handleBack"
+                styleClass="back-button"/>
+    </HBox>
+
+</VBox>

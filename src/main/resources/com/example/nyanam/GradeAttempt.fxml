@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.GradeAttemptController"
+      alignment="TOP_CENTER" spacing="15"
+      style="-fx-background-color: #f4f4f4; -fx-padding: 20; -fx-font-family: 'Arial';">
+
+    <Label fx:id="titleLabel" text="Grading Exam" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Student:" style="-fx-font-weight: bold;"/>
+        <Label fx:id="studentNameLabel" text="[Student Name]"/>
+        <Label text="Exam:" style="-fx-font-weight: bold; -fx-padding: 0 0 0 20;"/>
+        <Label fx:id="examNameLabel" text="[Exam Name]"/>
+    </HBox>
+
+    <TableView fx:id="answersTableView" prefHeight="600" VBox.vgrow="ALWAYS" editable="true">
+        <columns>
+            <TableColumn fx:id="questionCol" text="Question" prefWidth="350"/>
+            <TableColumn fx:id="answerCol" text="Student's Answer" prefWidth="350"/>
+            <TableColumn fx:id="maxMarksCol" text="Max" prefWidth="70" style="-fx-alignment: CENTER;"/>
+
+            <TableColumn fx:id="marksAwardedCol" text="Awarded" prefWidth="100" style="-fx-alignment: CENTER;"/>
+
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="statusLabel" text="Enter marks in the 'Awarded' column." style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS"/>
+        <VBox HBox.hgrow="ALWAYS"/> <Button fx:id="saveButton" text="Save &amp; Finalize Grades" onAction="#handleSave"
+                                            style="-fx-font-size: 14px; -fx-padding: 8 15; -fx-background-color: #28a745; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;"/>
+    </HBox>
+</VBox>

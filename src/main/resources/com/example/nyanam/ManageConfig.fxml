@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.TextFieldTableCell?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.ManageConfigController"
+      alignment="TOP_CENTER" spacing="15"
+      style="-fx-background-color: #f4f4f4; -fx-padding: 20; -fx-font-family: 'Arial';">
+
+    <Label text="System Configuration" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <Label text="Edit values in the table. Press Enter to save a change." style="-fx-font-size: 14px; -fx-text-fill: #555;"/>
+
+    <TableView fx:id="configTable" editable="true" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="configKeyCol" text="Setting Key" prefWidth="250" editable="false"/>
+
+            <TableColumn fx:id="configValueCol" text="Setting Value" prefWidth="500">
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn"/>
+                </cellFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="statusLabel" text="" style="-fx-font-size: 14px; -fx-text-fill: red;" HBox.hgrow="ALWAYS"/>
+        <VBox HBox.hgrow="ALWAYS"/> <Button fx:id="backButton" text="Back to Dashboard" onAction="#handleBack"
+                                            style="-fx-font-size: 14px; -fx-padding: 8 15; -fx-background-color: #555; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;"/>
+    </HBox>
+</VBox>

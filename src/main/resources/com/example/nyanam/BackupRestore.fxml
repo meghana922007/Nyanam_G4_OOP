@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.BackupRestoreController"
+      alignment="TOP_LEFT" spacing="15"
+      style="-fx-background-color: #f4f4f4; -fx-padding: 30; -fx-font-family: 'Arial';">
+
+    <Label text="Database Backup &amp; Restore" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+    <Label text="This tool uses 'mysqldump' and 'mysql' commands." style="-fx-font-size: 14px;"/>
+
+    <VBox spacing="10" style="-fx-border-color: #ccc; -fx-padding: 20; -fx-border-radius: 5; -fx-background-color: #fff;">
+
+        <Label text="MySQL 'bin' Path:" style="-fx-font-weight: bold;"/>
+        <Label fx:id="mysqlBinPathLabel" text="[Loading path from config...]" style="-fx-font-size: 12px; -fx-text-fill: #333;"/>
+        <Label text="(You can change this in 'System Config' on the admin dashboard)" style="-fx-font-size: 11px;"/>
+
+        <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
+            <Button fx:id="backupButton" text="Backup Database..." onAction="#handleBackup" style="-fx-background-color: #007bff; -fx-text-fill: white;" prefWidth="200"/>
+            <Button fx:id="restoreButton" text="Restore Database..." onAction="#handleRestore" style="-fx-background-color: #c9302c; -fx-text-fill: white;" prefWidth="200"/>
+        </HBox>
+    </VBox>
+
+    <Label fx:id="statusLabel" text="" style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS"/>
+
+    <HBox alignment="BOTTOM_RIGHT" VBox.vgrow="ALWAYS">
+        <Button fx:id="backButton" text="Back to Dashboard" onAction="#handleBack"/>
+    </HBox>
+
+</VBox>

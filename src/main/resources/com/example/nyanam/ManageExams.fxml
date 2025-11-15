@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  ManageExams.fxml
+  - This is the new screen for managing exams.
+  - It's loaded by the TeacherDashboardController.
+  - It uses the ManageExamsController.
+-->
+
+<VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.ManageExamsController"
+      alignment="TOP_CENTER" spacing="20" styleClass="root"
+      stylesheets="@Dashboard.css">
+
+    <padding>
+        <Insets top="30" right="50" bottom="30" left="50"/>
+    </padding>
+
+    <Label text="Manage Exams" styleClass="header-label"/>
+
+    <!--
+      VBox to hold the exam management buttons
+    -->
+    <VBox alignment="CENTER" spacing="15">
+
+        <!--
+          Button for Create Exam
+          FIX: Changed "Double.MAX_VALUE" to "Infinity",
+          which the FXML loader can parse correctly.
+        -->
+        <Button text="Create Exam" onAction="#handleCreateExam"
+                styleClass="dashboard-button" maxWidth="Infinity" prefHeight="60"/>
+
+        <!-- Button for View Exams -->
+        <Button text="View Exams" onAction="#handleViewExams"
+                styleClass="dashboard-button" maxWidth="Infinity" prefHeight="60"/>
+
+    </VBox>
+
+    <!-- VBox for the Back button, pushed to the bottom -->
+    <VBox VBox.vgrow="ALWAYS" alignment="BOTTOM_CENTER">
+        <padding>
+            <Insets top="20"/>
+        </padding>
+        <!-- Back Button -->
+        <Button text="Back to Dashboard" onAction="#handleBack"
+                styleClass="logout-button" prefWidth="200" prefHeight="40"/>
+    </VBox>
+
+    <Label fx:id="statusLabel" styleClass="status-label"/>
+
+</VBox>
+

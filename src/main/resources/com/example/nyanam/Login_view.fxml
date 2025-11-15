@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.LoginController"
+      alignment="CENTER" stylesheets="@Login.css" styleClass="root"
+      prefHeight="500" prefWidth="600"> <VBox alignment="CENTER" spacing="18" styleClass="login-container">
+
+    <Label text="Welcome to Nyanam" styleClass="title-label" alignment="CENTER"/>
+    <Label text="Your smart journey through learning, testing, and growing."
+           styleClass="subtitle-label" alignment="CENTER"/>
+
+    <VBox spacing="12" maxWidth="320" alignment="CENTER_LEFT">
+        <Label text="Username:" styleClass="prompt-label"/>
+        <TextField fx:id="usernameField" promptText="Enter your username"/>
+
+        <Label text="Password:" styleClass="prompt-label"/>
+        <PasswordField fx:id="passwordField" promptText="Enter your password"/>
+
+        <Label text="Select Role:" styleClass="prompt-label" style="-fx-padding-top: 5px;"/>
+
+        <HBox styleClass="radio-button-container">
+            <fx:define>
+                <ToggleGroup fx:id="roleToggleGroup"/>
+            </fx:define>
+            <RadioButton fx:id="studentRadio" text="Student" styleClass="radio-button" toggleGroup="$roleToggleGroup"/>
+            <RadioButton fx:id="teacherRadio" text="Teacher" styleClass="radio-button" toggleGroup="$roleToggleGroup"/>
+            <RadioButton fx:id="adminRadio" text="Admin" styleClass="radio-button" toggleGroup="$roleToggleGroup"/>
+        </HBox>
+    </VBox>
+
+    <Button fx:id="loginButton" text="Login" onAction="#handleLoginButtonAction"
+            styleClass="login-button"/>
+
+    <Label fx:id="errorLabel" styleClass="error-label"/>
+
+</VBox>
+</VBox>

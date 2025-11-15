@@ -1,0 +1,104 @@
+
+.root {
+    -fx-background-color: #f4f4f4;
+    -fx-font-family: "System";
+
+}
+
+.login-container {
+    -fx-background-color: #ffffff;
+    -fx-padding: 40px 50px;
+    -fx-spacing: 18px;
+    -fx-max-width: 420px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 15, 0, 0, 6);
+}
+
+.title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 5px 0;
+    -fx-alignment: CENTER;
+    -fx-max-width: infinity;
+}
+
+.subtitle-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #777;
+    -fx-text-alignment: CENTER;
+    -fx-wrap-text: true;
+    -fx-padding: 0 0 15px 0;
+    -fx-max-width: infinity;
+    -fx-alignment: CENTER;
+}
+
+.prompt-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+    -fx-font-weight: bold;
+}
+
+.text-field, .password-field {
+    -fx-font-size: 16px;
+    -fx-background-color: #fdfdfd;
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 1px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #005A9C;
+    -fx-border-width: 2px;
+    -fx-background-color: #ffffff;
+    -fx-prompt-text-fill: transparent;
+}
+
+.radio-button-container {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
+    -fx-padding: 10px 0 0 0;
+}
+
+.radio-button {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #005A9C;
+}
+.radio-button:selected .radio .dot {
+    -fx-background-color: white;
+}
+
+.login-button {
+    -fx-background-color: #005A9C;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-max-width: infinity;
+    -fx-padding: 12px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.login-button:hover {
+    -fx-background-color: #004a80;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.error-label {
+    -fx-text-fill: #d9534f;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-max-width: infinity;
+    -fx-min-height: 20px;
+}

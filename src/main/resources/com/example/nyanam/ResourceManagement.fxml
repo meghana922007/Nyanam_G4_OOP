@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.nyanam.ResourceController"
+            prefHeight="600.0" prefWidth="900.0"
+            stylesheets="@ResourceManagement.css" styleClass="root">
+
+    <top>
+        <VBox styleClass="form-container">
+            <Label text="Resource Management" styleClass="page-title"/>
+
+            <HBox styleClass="form-hbox">
+                <VBox styleClass="form-vbox">
+                    <Label text="Title:" styleClass="form-label"/>
+                    <TextField fx:id="titleField" promptText="Enter resource title"
+                               prefWidth="250" styleClass="form-text-field"/>
+                </VBox>
+
+                <VBox styleClass="form-vbox">
+                    <Label text="Topic:" styleClass="form-label"/>
+                    <TextField fx:id="topicField" promptText="e.g., Mathematics"
+                               prefWidth="200" styleClass="form-text-field"/>
+                </VBox>
+
+                <VBox styleClass="form-vbox">
+                    <Label text="Subtopic:" styleClass="form-label"/>
+                    <TextField fx:id="subtopicField" promptText="e.g., Algebra"
+                               prefWidth="200" styleClass="form-text-field"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="resourceTable" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID" prefWidth="50" />
+                <TableColumn fx:id="titleCol" text="Title" prefWidth="180" />
+                <TableColumn fx:id="topicCol" text="Topic" prefWidth="120" />
+                <TableColumn fx:id="subtopicCol" text="Subtopic" prefWidth="120" />
+                <TableColumn fx:id="typeCol" text="Type" prefWidth="80" />
+                <TableColumn fx:id="filePathCol" text="File Path" prefWidth="300" />
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox styleClass="footer-bar">
+            <HBox styleClass="button-hbox">
+                <Button text="Add Resource" fx:id="addBtn"
+                        styleClass="action-button, add-button" />
+
+                <Button text="Delete Selected" fx:id="deleteBtn"
+                        styleClass="action-button, delete-button" />
+
+                <Button text="Refresh" fx:id="refreshBtn"
+                        styleClass="action-button, refresh-button" />
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button text="Back to Dashboard" fx:id="backBtn"
+                        styleClass="action-button, back-button" />
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>

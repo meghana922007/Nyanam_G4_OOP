@@ -1,0 +1,51 @@
+/* dashboard.css
+  A shared stylesheet for all dashboards (Student, Teacher, Admin).
+*/
+
+.root {
+    -fx-background-color: #fafafa;
+    -fx-font-family: "Arial";
+}
+
+.header-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222;
+    -fx-padding: 10px;
+}
+
+.dashboard-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 2);
+}
+
+.dashboard-button:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #007bff;
+}
+
+.logout-button {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+
+.logout-button:hover {
+    -fx-background-color: #c82333;
+}
+
+.status-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #444;
+    -fx-padding: 10px;
+}

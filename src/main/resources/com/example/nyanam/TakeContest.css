@@ -1,0 +1,124 @@
+.root {
+    -fx-font-family: "Segoe UI", "System", "Arial", sans-serif;
+    -fx-background-color: #F7F9FC;
+}
+
+/* --- Top Header Bar --- */
+.header-bar {
+    -fx-background-color: #005A9C;
+    -fx-padding: 12px 25px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.timer-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f39c12; /* Timer Accent */
+    -fx-padding: 0 0 0 20px;
+}
+
+/* --- Center Content Area --- */
+.scroll-pane {
+    -fx-background-color: #F7F9FC;
+    -fx-padding: 20px;
+}
+
+.question-container {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 30px;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 4);
+}
+
+.question-number {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.question-marks {
+    -fx-font-size: 16px;
+    -fx-text-fill: #555555;
+}
+
+.question-text {
+    -fx-font-size: 18px;
+    -fx-text-fill: #333333;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 4px;
+}
+
+/* --- Dynamic Answer Elements --- */
+/* These classes must be added *in Java* when you create the elements */
+.answer-radio-button {
+    -fx-font-size: 16px;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 3px;
+    -fx-padding: 5px 0;
+}
+
+.answer-text-area {
+    -fx-font-size: 16px;
+    -fx-border-color: #dcdcdc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+.answer-text-area:focused {
+    -fx-border-color: #005A9C;
+    -fx-border-width: 2px;
+}
+
+/* --- Bottom Navigation Bar --- */
+.navigation-bar {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 15px 25px;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1px 0 0 0;
+}
+
+.nav-button {
+    -fx-font-size: 16px;
+    -fx-padding: 8px 20px;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #005A9C;
+    -fx-background-color: transparent;
+    -fx-border-color: #005A9C;
+    -fx-border-width: 2px;
+}
+.nav-button:hover {
+    -fx-background-color: #005A9C;
+    -fx-text-fill: white;
+}
+.nav-button:disabled {
+    -fx-opacity: 0.5;
+}
+
+.submit-button {
+    -fx-font-size: 16px;
+    -fx-padding: 10px 25px;
+    -fx-background-color: #e74c3c; /* Softer Red */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+    -fx-border-width: 0;
+}
+.submit-button:hover {
+    -fx-background-color: #c0392b; /* Darker Red */
+}
+
+.status-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+}

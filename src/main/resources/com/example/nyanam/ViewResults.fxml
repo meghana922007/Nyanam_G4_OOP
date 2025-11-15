@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.nyanam.ViewResultsController"
+      alignment="TOP_CENTER"
+      stylesheets="@ViewResults.css" styleClass="root">
+
+    <Label text="My Exam Results" styleClass="page-title"/>
+    <Label text="A summary of your past exam attempts." styleClass="page-s'ubtitle"/>
+
+    <TableView fx:id="resultsTableView" prefHeight="400" VBox.vgrow="ALWAYS" styleClass="table-view">
+        <columns>
+            <TableColumn fx:id="examNameCol" text="Exam Name" prefWidth="300"/>
+
+            <TableColumn fx:id="submittedAtCol" text="Date Submitted" prefWidth="180" styleClass="centered-column"/>
+            <TableColumn fx:id="scoreCol" text="Score" prefWidth="120" styleClass="centered-column"/>
+            <TableColumn fx:id="statusCol" text="Status" prefWidth="140" styleClass="centered-column"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="action-bar">
+        <Label fx:id="statusLabel" text="" styleClass="status-label" HBox.hgrow="ALWAYS"/>
+
+        <VBox HBox.hgrow="ALWAYS"/> <Button fx:id="backButton" text="Back to Dashboard" onAction="#handleBack"
+                                            styleClass="back-button"/>
+    </HBox>
+
+</VBox>

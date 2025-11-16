@@ -1,0 +1,94 @@
+.root {
+    -fx-background-color: #F7F9FC;
+    -fx-font-family: "Segoe UI", "System", "Arial", sans-serif;
+    -fx-padding: 30px 50px;
+    -fx-spacing: 20px;
+    -fx-alignment: TOP_CENTER;
+}
+
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10px 0;
+}
+
+.form-container {
+    -fx-spacing: 10px;
+    -fx-max-width: 400px;
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+    -fx-font-weight: bold;
+}
+
+.text-field,
+.spinner {
+    -fx-font-size: 16px;
+    -fx-background-color: #fdfdfd;
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 1px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+}
+
+.text-field:focused,
+.spinner:focused {
+    -fx-border-color: #005A9C;
+    -fx-border-width: 2px;
+    -fx-background-color: #ffffff;
+}
+
+.spinner .arrow-button {
+    -fx-background-color: #f0f0f0;
+}
+.spinner .arrow-button:hover {
+    -fx-background-color: #e0e0e0;
+}
+.spinner .arrow-button .arrow {
+    -fx-background-color: #333;
+}
+
+.button-bar {
+    -fx-spacing: 20px;
+    -fx-alignment: CENTER;
+    -fx-padding: 15px 0 0 0;
+}
+
+.save-button {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 15px;
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 180px;
+}
+.save-button:hover {
+    -fx-background-color: #218838;
+}
+
+.cancel-button {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 15px;
+    -fx-background-color: #555555;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 180px;
+}
+.cancel-button:hover {
+    -fx-background-color: #333333;
+}
+
+.status-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e74c3c;
+    -fx-min-height: 20px;
+}

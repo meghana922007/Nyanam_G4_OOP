@@ -1,0 +1,89 @@
+.root {
+    -fx-background-color: #F7F9FC;
+    -fx-font-family: "Segoe UI", "System", "Arial", sans-serif;
+    -fx-padding: 30px;
+    -fx-spacing: 20px;
+    -fx-alignment: TOP_CENTER;
+}
+
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10px 0;
+}
+
+.form-grid {
+    -fx-hgap: 15px;
+    -fx-vgap: 10px;
+    -fx-max-width: 500px;
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+    -fx-font-weight: bold;
+}
+
+.text-field,
+.date-picker .text-field {
+    -fx-font-size: 14px;
+    -fx-background-color: #fdfdfd;
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 1px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px 10px;
+    -fx-pref-width: 250px;
+}
+
+.text-field:focused,
+.date-picker .text-field:focused {
+    -fx-border-color: #005A9C;
+    -fx-border-width: 2px;
+    -fx-background-color: #ffffff;
+}
+
+.date-picker {
+    -fx-padding: 0;
+}
+
+.button-bar {
+    -fx-spacing: 10px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 15px 0 0 0;
+    -fx-max-width: 500px;
+}
+
+.save-button {
+    -fx-font-size: 14px;
+    -fx-padding: 8px 15px;
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+.save-button:hover {
+    -fx-background-color: #218838;
+}
+
+.cancel-button {
+    -fx-font-size: 14px;
+    -fx-padding: 8px 15px;
+    -fx-background-color: #555555;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+.cancel-button:hover {
+    -fx-background-color: #333333;
+}
+
+.status-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e74c3c;
+    -fx-min-height: 20px;
+}

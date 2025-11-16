@@ -66,7 +66,7 @@ public class AddQuestionsController {
         String questionText = questionTextArea.getText();
         int marks = marksSpinner.getValue();
 
-        // --- Input Validation ---
+
         if (questionText.isBlank()) {
             statusLabel.setText("Error: Question text cannot be empty.");
             statusLabel.setTextFill(javafx.scene.paint.Color.RED);

@@ -17,7 +17,7 @@ public class Resource {
     public StringProperty getTypeProperty() { return type; }
     public StringProperty getFilePathProperty() { return filePath; }
 
-    // Add setter for ID
+
     public void setResourceId(int id) { this.resourceId.set(id); }
     public void setTitle(String t) { this.title.set(t); }
     public void setTopic(String t) { this.topic.set(t); }

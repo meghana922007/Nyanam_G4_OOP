@@ -22,7 +22,7 @@ import java.util.Optional;
 
 public class TakeExamController {
 
-    // FXML fields from the view
+
     @FXML private Label examNameLabel;
     @FXML private Label timerLabel;
     @FXML private VBox questionContainer;
@@ -35,23 +35,20 @@ public class TakeExamController {
     @FXML private Button submitButton;
     @FXML private Label statusLabel;
 
-    // Exam-related data
+
     private ExamSummary exam;
     private int studentId;
     private int attemptId;
     private List<FullQuestion> questions;
     private int currentQuestionIndex = 0;
 
-    // Timer
     private Timeline timeline;
     private long timeRemainingInSeconds;
 
-    // To store student's answers
+
     private Map<Integer, Object> studentAnswers = new HashMap<>();
 
-    /**
-     * Called by ExamInstructionsController to start the exam.
-     */
+
     public void initData(ExamSummary exam, int studentId, int attemptId) {
         this.exam = exam;
         this.studentId = studentId;
@@ -60,11 +57,11 @@ public class TakeExamController {
 
         examNameLabel.setText("Exam: " + exam.getExamName());
 
-        // Fetch all questions from DB
+
         this.questions = DatabaseConnector.getFullExamQuestions(exam.getExamId());
 
         if (questions == null || questions.isEmpty()) {
-            // Handle error - no questions found
+
             statusLabel.setText("Error: This exam has no questions.");
             nextButton.setDisable(true);
             return;
@@ -106,25 +103,23 @@ public class TakeExamController {
         startTimer();
     }
 
-    /**
-     * Configures and starts the countdown timer.
-     */
+
     private void startTimer() {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             timeRemainingInSeconds--;
 
-            // Format time as HH:mm:ss
+
             long hours = timeRemainingInSeconds / 3600;
             long minutes = (timeRemainingInSeconds % 3600) / 60;
             long seconds = timeRemainingInSeconds % 60;
             timerLabel.setText(String.format("Time Left: %02d:%02d:%02d", hours, minutes, seconds));
 
-            // Change color to red in the last 5 minutes
+
             if (timeRemainingInSeconds <= 300) {
                 timerLabel.setTextFill(Color.RED);
             }
 
-            // Auto-submit when time runs out
+
             if (timeRemainingInSeconds <= 0) {
                 timeline.stop();
                 autoSubmit();
@@ -134,9 +129,7 @@ public class TakeExamController {
         timeline.play();
     }
 
-    /**
-     * Loads the question and answer options for the given index.
-     */
+
     private void displayQuestion(int index) {
         FullQuestion fq = questions.get(index);
 
@@ -144,19 +137,19 @@ public class TakeExamController {
         marksLabel.setText("(" + fq.getQuestion().getMarks() + " Marks)");
         questionTextLabel.setText(fq.getQuestion().getQuestionText());
 
-        // Clear previous answer options
+
         answerContainer.getChildren().clear();
 
         if (fq.isMcq()) {
-            // It's an MCQ, create RadioButtons
+
             ToggleGroup toggleGroup = new ToggleGroup();
             for (McqOption option : fq.getOptions()) {
                 RadioButton rb = new RadioButton(option.getOptionText());
-                rb.setUserData(option.getOptionId()); // Store the option ID
+                rb.setUserData(option.getOptionId());
                 rb.setToggleGroup(toggleGroup);
                 rb.getStyleClass().add("answer-radio-button");
 
-                // Check if this was the student's previous answer
+
                 Integer savedAnswerId = (Integer) studentAnswers.get(fq.getQuestion().getQuestionId());
                 if (savedAnswerId != null && savedAnswerId == option.getOptionId()) {
                     rb.setSelected(true);
@@ -165,14 +158,14 @@ public class TakeExamController {
                 answerContainer.getChildren().add(rb);
             }
         } else {
-            // It's Descriptive, create a TextArea
+
             TextArea ta = new TextArea();
             ta.setPromptText("Enter your answer here...");
             ta.setWrapText(true);
             ta.setPrefHeight(200);
             ta.getStyleClass().add("answer-text-area");
 
-            // Check for saved answer
+
             String savedAnswerText = (String) studentAnswers.get(fq.getQuestion().getQuestionId());
             if (savedAnswerText != null) {
                 ta.setText(savedAnswerText);
@@ -182,9 +175,7 @@ public class TakeExamController {
         }
     }
 
-    /**
-     * Saves the current question's answer to the map and database.
-     */
+
     private void saveCurrentAnswer() {
         FullQuestion fq = questions.get(currentQuestionIndex);
         int qId = fq.getQuestion().getQuestionId();
@@ -196,7 +187,7 @@ public class TakeExamController {
             if (selectedRadio != null) {
                 Integer selectedOptionId = (Integer) selectedRadio.getUserData();
                 studentAnswers.put(qId, selectedOptionId);
-                // Save to DB
+
                 DatabaseConnector.saveStudentAnswer(attemptId, qId, selectedOptionId, null);
             }
         } else {
@@ -204,7 +195,7 @@ public class TakeExamController {
             String answerText = ta.getText();
             if (answerText != null && !answerText.trim().isEmpty()) {
                 studentAnswers.put(qId, answerText);
-                // Save to DB
+
                 DatabaseConnector.saveStudentAnswer(attemptId, qId, null, answerText);
             }
         }
@@ -213,7 +204,7 @@ public class TakeExamController {
     @FXML
     private void handlePrevious() {
         if (currentQuestionIndex > 0) {
-            saveCurrentAnswer(); // Save before moving
+            saveCurrentAnswer();
             currentQuestionIndex--;
             displayQuestion(currentQuestionIndex);
             updateNavigationButtons();
@@ -223,16 +214,14 @@ public class TakeExamController {
     @FXML
     private void handleNext() {
         if (currentQuestionIndex < questions.size() - 1) {
-            saveCurrentAnswer(); // Save before moving
+            saveCurrentAnswer();
             currentQuestionIndex++;
             displayQuestion(currentQuestionIndex);
             updateNavigationButtons();
         }
     }
 
-    /**
-     * Manages the state of the Previous, Next, and Submit buttons.
-     */
+
     private void updateNavigationButtons() {
         previousButton.setDisable(currentQuestionIndex == 0);
         nextButton.setDisable(currentQuestionIndex == questions.size() - 1);
@@ -241,10 +230,10 @@ public class TakeExamController {
 
     @FXML
     private void handleSubmit() {
-        // Save the very last answer
+
         saveCurrentAnswer();
 
-        // Show a confirmation dialog
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Submit Exam");
         alert.setHeaderText("Are you sure you want to submit?");
@@ -257,53 +246,44 @@ public class TakeExamController {
         }
     }
 
-    /**
-     * Called by timer when time is up.
-     */
+
     private void autoSubmit() {
         saveCurrentAnswer();
 
-        // Show an info box
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Time's Up!");
         alert.setHeaderText("Your time for this exam has expired.");
         alert.setContentText("Your exam will now be submitted automatically.");
 
-        // We must run the rest on the JavaFX thread after the dialog is closed
         alert.setOnHidden(e -> submitExam());
         alert.show();
     }
 
-    /**
-     * --- (THIS METHOD IS UPDATED) ---
-     * The final step. Stops timer, grades, and moves to the results screen.
-     * Now includes error handling for the background thread.
-     */
+
     private void submitExam() {
         if (timeline != null) {
             timeline.stop();
         }
 
-        // Disable all buttons to prevent double-submission
         previousButton.setDisable(true);
         nextButton.setDisable(true);
         submitButton.setDisable(true);
         statusLabel.setText("Submitting and grading... Please wait.");
 
-        // --- Run the grading on a separate thread so the UI doesn't freeze ---
         new Thread(() -> {
             try {
-                // --- This is the database call ---
+
                 int finalScore = DatabaseConnector.submitAndGradeExam(attemptId);
 
-                // --- Success: Update UI on FX thread ---
+
                 Platform.runLater(() -> {
                     showResultsScreen(finalScore);
                 });
 
             } catch (Exception e) {
-                // --- Failure: Print error and update UI ---
-                e.printStackTrace(); // This will print the SQL error to your console
+
+                e.printStackTrace();
 
                 Platform.runLater(() -> {
                     statusLabel.setTextFill(Color.RED);
@@ -319,19 +299,11 @@ public class TakeExamController {
         }).start();
     }
 
-    /**
-     * --- (THIS METHOD IS UPDATED) ---
-     * Loads the final (Phase 4) results screen.
-     * Now catches *all* Exceptions (like NullPointerException)
-     * to prevent silent failures.
-     */
     private void showResultsScreen(int finalScore) {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("ExamResults.fxml"));
             Parent root = loader.load();
 
-            // This check is important. If the FXML file isn't found,
-            // getResource() returns null, and loader.load() throws an Exception.
             if (root == null) {
                 throw new IOException("FXML file not found: ExamResults.fxml");
             }
@@ -342,16 +314,15 @@ public class TakeExamController {
             Scene scene = new Scene(root, 600, 400);
             Main.getPrimaryStage().setScene(scene);
             Main.getPrimaryStage().setTitle("Exam Results");
-            Main.getPrimaryStage().setMaximized(false); // Go back to a normal window
+            Main.getPrimaryStage().setMaximized(false);
 
-        } catch (Exception e) { // Catch ALL exceptions
-            e.printStackTrace(); // Print the full error (e.g., NullPointerException)
+        } catch (Exception e) {
+            e.printStackTrace();
 
-            // Update the UI to show a helpful error message
+
             statusLabel.setTextFill(Color.RED);
             statusLabel.setText("CRITICAL ERROR: Could not load results screen. Check console.");
 
-            // Also show an alert box to the user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Loading Results");
             alert.setHeaderText("A critical error occurred while loading the results page.");

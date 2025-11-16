@@ -5,10 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
-/**
- * A data model for the ManageUsers.fxml TableView.
- * Holds summary info for both Students and Teachers.
- */
+
 public class UserAccount {
 
     private final IntegerProperty id;
@@ -23,11 +20,10 @@ public class UserAccount {
         this.status = new SimpleStringProperty(status);
     }
 
-    // --- Getters for controller logic ---
+
     public int getId() { return id.get(); }
     public String getStatus() { return status.get(); }
 
-    // --- JavaFX Property Getters for TableView ---
     public StringProperty fullNameProperty() { return fullName; }
     public StringProperty usernameProperty() { return username; }
     public StringProperty statusProperty() { return status; }

@@ -5,7 +5,7 @@ public class Question {
     private int questionId;
     private int examId;
     private String questionText;
-    private String questionType; // "MCQ" or "Descriptive"
+    private String questionType;
     private int marks;
 
     public Question(int questionId, int examId, String questionText, String questionType, int marks) {
@@ -16,7 +16,7 @@ public class Question {
         this.marks = marks;
     }
 
-    // Getters
+
     public int getQuestionId() { return questionId; }
     public int getExamId() { return examId; }
     public String getQuestionText() { return questionText; }

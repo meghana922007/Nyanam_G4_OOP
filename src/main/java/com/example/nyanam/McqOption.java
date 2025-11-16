@@ -13,7 +13,7 @@ public class McqOption {
         this.isCorrect = isCorrect;
     }
 
-    // Getters
+
     public int getOptionId() { return optionId; }
     public int getQuestionId() { return questionId; }
     public String getOptionText() { return optionText; }

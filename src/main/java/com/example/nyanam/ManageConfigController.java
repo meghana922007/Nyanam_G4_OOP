@@ -29,24 +29,23 @@ public class ManageConfigController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // 1. Setup Table Columns
+
         configKeyCol.setCellValueFactory(new PropertyValueFactory<>("configKey"));
         configValueCol.setCellValueFactory(new PropertyValueFactory<>("configValue"));
         configTable.setItems(configList);
 
-        // 2. Make the Value Column Editable
         configValueCol.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        // 3. Set the "On Edit Commit" event to save changes
+
         configValueCol.setOnEditCommit(event -> {
             SystemConfig config = event.getRowValue();
             String newValue = event.getNewValue().trim();
 
             try {
-                // Update the database
+
                 DatabaseConnector.updateConfig(config.getConfigKey(), newValue);
 
-                // Update the model in the table
+
                 config.setConfigValue(newValue);
 
                 statusLabel.setTextFill(Color.GREEN);
@@ -56,12 +55,11 @@ public class ManageConfigController implements Initializable {
                 statusLabel.setTextFill(Color.RED);
                 statusLabel.setText("Error updating setting: " + e.getMessage());
 
-                // Revert the change in the table (optional)
                 configTable.refresh();
             }
         });
 
-        // 4. Load initial data
+
         loadConfigs();
     }
 

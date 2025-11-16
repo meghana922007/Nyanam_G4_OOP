@@ -17,26 +17,25 @@ import java.net.URL; // Import this
 import java.util.Optional;
 import java.util.ResourceBundle; // Import this
 
-// Implement Initializable to load the path on startup
 public class BackupRestoreController implements Initializable {
 
-    @FXML private Label mysqlBinPathLabel; // Was TextField
+    @FXML private Label mysqlBinPathLabel;
     @FXML private Button backupButton;
     @FXML private Button restoreButton;
     @FXML private Button backButton;
     @FXML private Label statusLabel;
 
-    private String mysqlBinPath; // Private variable to store the path
+    private String mysqlBinPath;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Load the path from the database
+
         mysqlBinPath = DatabaseConnector.getConfigValue("MYSQL_BIN_PATH");
 
         if (mysqlBinPath == null || mysqlBinPath.isEmpty()) {
             mysqlBinPathLabel.setText("Path not set. Please set 'MYSQL_BIN_PATH' in System Config.");
             mysqlBinPathLabel.setTextFill(Color.RED);
-            // Disable buttons if path is not set
+
             backupButton.setDisable(true);
             restoreButton.setDisable(true);
         } else {
@@ -52,7 +51,7 @@ public class BackupRestoreController implements Initializable {
 
     @FXML
     private void handleBackup() {
-        if (!isPathValid()) return; // Check if path is valid
+        if (!isPathValid()) return;
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Database Backup");
@@ -71,7 +70,7 @@ public class BackupRestoreController implements Initializable {
 
         new Thread(() -> {
             try {
-                // Use the class variable for the path
+
                 boolean success = DatabaseConnector.backupDatabase(mysqlBinPath, file.getAbsolutePath());
 
                 Platform.runLater(() -> {
@@ -97,7 +96,7 @@ public class BackupRestoreController implements Initializable {
 
     @FXML
     private void handleRestore() {
-        if (!isPathValid()) return; // Check if path is valid
+        if (!isPathValid()) return;
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Backup File to Restore");
@@ -127,7 +126,7 @@ public class BackupRestoreController implements Initializable {
 
         new Thread(() -> {
             try {
-                // Use the class variable for the path
+
                 boolean success = DatabaseConnector.restoreDatabase(mysqlBinPath, file.getAbsolutePath());
 
                 Platform.runLater(() -> {
@@ -151,7 +150,6 @@ public class BackupRestoreController implements Initializable {
         }).start();
     }
 
-    // Helper to check if the path was loaded
     private boolean isPathValid() {
         if (mysqlBinPath == null || mysqlBinPath.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Path Not Set", "The MySQL 'bin' path is not set. Please set 'MYSQL_BIN_PATH' in the System Config screen.");

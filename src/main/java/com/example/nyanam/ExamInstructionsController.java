@@ -56,11 +56,11 @@ public class ExamInstructionsController {
                 return;
             }
 
-            // Load the new FXML screen (Phase 3)
+
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("TakeExam.fxml"));
             Parent root = loader.load();
 
-            // Get the controller and pass in all the data it needs to run
+
             TakeExamController controller = loader.getController();
             controller.initData(selectedExam, studentId, attemptId);
 
@@ -68,7 +68,7 @@ public class ExamInstructionsController {
             Scene scene = new Scene(root);
             Main.getPrimaryStage().setScene(scene);
             Main.getPrimaryStage().setTitle("Taking Exam: " + selectedExam.getExamName());
-            Main.getPrimaryStage().setMaximized(true); // Take over the screen
+            Main.getPrimaryStage().setMaximized(true);
 
         } catch (IOException e) {
             e.printStackTrace();

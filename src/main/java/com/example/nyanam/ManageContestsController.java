@@ -34,13 +34,13 @@ public class ManageContestsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // 1. Set up the table columns
+
         contestNameCol.setCellValueFactory(new PropertyValueFactory<>("contestName"));
         startTimeCol.setCellValueFactory(new PropertyValueFactory<>("startTime"));
         endTimeCol.setCellValueFactory(new PropertyValueFactory<>("endTime"));
         questionCountCol.setCellValueFactory(new PropertyValueFactory<>("questionCount"));
 
-        // 2. Load the data
+
         loadContestData();
     }
 
@@ -62,7 +62,7 @@ public class ManageContestsController implements Initializable {
 
     @FXML
     private void handleAdd() throws IOException {
-        // Open the new create contest screen
+
         Main.changeScene("CreateContest.fxml", "Create New Contest", 500, 450);
     }
 

@@ -3,10 +3,7 @@ package com.example.nyanam;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-/**
- * A data model class to hold a student's past exam attempt summary.
- * This is used for the "View Results" TableView.
- */
+
 public class StudentAttemptSummary {
 
     private final StringProperty examName;
@@ -21,8 +18,6 @@ public class StudentAttemptSummary {
         this.status = new SimpleStringProperty(status);
     }
 
-    // --- JavaFX Property Getters ---
-    // These are required by the PropertyValueFactory
 
     public StringProperty examNameProperty() {
         return examName;

@@ -607,7 +607,7 @@ public class DatabaseConnector {
         return false;
     }
 
-    // --- STUDENT CONTEST LOBBY ---
+
     public static List<ContestSummary> getActiveContests() {
         List<ContestSummary> contestSummaries = new ArrayList<>();
         String sql = "SELECT c.contest_id, c.contest_name, c.start_time, c.end_time, COUNT(cq.question_id) AS question_count " +
@@ -733,7 +733,7 @@ public class DatabaseConnector {
         Map<Integer, Question> questionMap = new HashMap<>();
         Map<Integer, List<McqOption>> optionsMap = new HashMap<>();
 
-        // Query the CONTEST tables
+
         String sql = "SELECT q.question_id, q.contest_id, q.question_text, q.question_type, q.marks, " +
                 "o.option_id, o.option_text, o.is_correct " +
                 "FROM Contest_Questions q " +
@@ -749,7 +749,7 @@ public class DatabaseConnector {
                 while (rs.next()) {
                     int qId = rs.getInt("question_id");
                     if (!questionMap.containsKey(qId)) {
-                        // Populate the generic Question model
+
                         questionMap.put(qId, new Question(
                                 qId,
                                 rs.getInt("contest_id"), // Store contest_id in the model's examId field

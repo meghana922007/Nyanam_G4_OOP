@@ -34,19 +34,19 @@ public class ManageUsersController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Setup Students Table
+
         studentNameCol.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         studentUsernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
         studentStatusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
         studentsTable.setItems(studentList);
 
-        // Setup Teachers Table
+
         teacherNameCol.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         teacherUsernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
         teacherStatusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
         teachersTable.setItems(teacherList);
 
-        // Load data into both tables
+
         loadAllUsers();
     }
 
@@ -127,7 +127,6 @@ public class ManageUsersController implements Initializable {
             return;
         }
 
-        // Show a strong confirmation dialog
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Deletion");
         alert.setHeaderText("PERMANENTLY DELETE USER?");
@@ -149,12 +148,12 @@ public class ManageUsersController implements Initializable {
         }
     }
 
-    // Helper method to get the currently selected role (tab)
+
     private String getSelectedRole() {
         return tabPane.getSelectionModel().getSelectedIndex() == 0 ? "student" : "teacher";
     }
 
-    // Helper method to get the selected user from the active table
+
     private UserAccount getSelectedUser() {
         if (getSelectedRole().equals("student")) {
             return studentsTable.getSelectionModel().getSelectedItem();

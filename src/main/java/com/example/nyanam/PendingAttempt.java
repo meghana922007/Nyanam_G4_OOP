@@ -5,10 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
-/**
- * A data model for the GradeExams.fxml TableView.
- * Holds summary info about a student attempt that needs grading.
- */
+
 public class PendingAttempt {
 
     private final IntegerProperty attemptId;
@@ -23,8 +20,7 @@ public class PendingAttempt {
         this.submittedAt = new SimpleStringProperty(submittedAt);
     }
 
-    // --- JavaFX Property Getters ---
-    // These methods are REQUIRED by the PropertyValueFactory
+
 
     public int getAttemptId() {
         return attemptId.get();

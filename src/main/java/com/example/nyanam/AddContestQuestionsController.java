@@ -24,8 +24,8 @@ public class AddContestQuestionsController {
 
     private ToggleGroup mcqToggleGroup;
 
-    private int currentContestId; // Renamed
-    private String currentContestName; // Renamed
+    private int currentContestId;
+    private String currentContestName;
 
     public void initData(int contestId, String contestName) {
         this.currentContestId = contestId;

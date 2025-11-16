@@ -22,7 +22,7 @@ public class AdminDashboardController {
             Parent root = loader.load();
             Stage modalStage = new Stage();
             modalStage.setTitle("Add New Teacher");
-            modalStage.setScene(new Scene(root, 400, 300));
+            modalStage.setScene(new Scene(root, 400, 400));
             modalStage.initModality(Modality.APPLICATION_MODAL);
             modalStage.initOwner((Stage) statusLabel.getScene().getWindow());
             modalStage.showAndWait();
@@ -40,7 +40,7 @@ public class AdminDashboardController {
             Parent root = loader.load();
             Stage modalStage = new Stage();
             modalStage.setTitle("Add New Student");
-            modalStage.setScene(new Scene(root, 400, 300));
+            modalStage.setScene(new Scene(root, 400, 400));
             modalStage.initModality(Modality.APPLICATION_MODAL);
             modalStage.initOwner((Stage) statusLabel.getScene().getWindow());
             modalStage.showAndWait();

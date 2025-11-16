@@ -10,28 +10,23 @@
 
 <VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.nyanam.CreateExamDetailsController"
-      alignment="TOP_CENTER" spacing="15" styleClass="root"
-      stylesheets="@Dashboard.css">
-
-    <padding>
-        <Insets top="30" right="50" bottom="30" left="50"/>
-    </padding>
+      styleClass="root" stylesheets="@CreateExam.css">
 
     <Label text="Create New Exam" styleClass="header-label"/>
 
-    <VBox spacing="10" maxWidth="400">
-        <Label text="Exam Name:" />
+    <VBox styleClass="form-container">
+        <Label text="Exam Name:" styleClass="form-label"/>
         <TextField fx:id="examNameField" promptText="e.g., OOP Midterm 1"/>
 
-        <Label text="Exam Duration (minutes):" />
+        <Label text="Exam Duration (minutes):" styleClass="form-label"/>
         <Spinner fx:id="durationSpinner" min="1" max="180" initialValue="60" editable="true"/>
     </VBox>
 
-    <HBox spacing="20" alignment="CENTER">
-        <Button text="Cancel" onAction="#handleCancel" styleClass="logout-button" prefWidth="180"/>
-        <Button text="Save &amp; Add Questions" onAction="#handleSaveAndAddQuestions" styleClass="dashboard-button" prefWidth="180"/>
+    <HBox styleClass="button-bar">
+        <Button text="Cancel" onAction="#handleCancel" styleClass="cancel-button"/>
+        <Button text="Save &amp; Add Questions" onAction="#handleSaveAndAddQuestions" styleClass="save-button"/>
     </HBox>
 
-    <Label fx:id="statusLabel" styleClass="status-label" textFill="red"/>
+    <Label fx:id="statusLabel" styleClass="status-label"/>
 
 </VBox>

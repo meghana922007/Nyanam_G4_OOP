@@ -10,24 +10,26 @@
 <VBox xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.nyanam.AddStudentController"
-      alignment="TOP_LEFT" spacing="15"
-      style="-fx-background-color: #f4f4f4; -fx-padding: 20; -fx-font-family: 'Arial';">
+      stylesheets="@AddStudent.css" styleClass="root">
 
-    <Label text="Create New Student Account" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <Label text="Create New Student Account" styleClass="page-title"/>
 
-    <Label text="Full Name:"/>
-    <TextField fx:id="fullNameField" promptText="e.g., John Smith"/>
+    <VBox styleClass="form-container">
+        <Label text="Full Name:" styleClass="form-label"/>
+        <TextField fx:id="fullNameField" promptText="e.g., John Smith" styleClass="text-field"/>
 
-    <Label text="Username:"/>
-    <TextField fx:id="usernameField" promptText="e.g., jsmith"/>
+        <Label text="Username:" styleClass="form-label"/>
+        <TextField fx:id="usernameField" promptText="e.g., jsmith" styleClass="text-field"/>
 
-    <Label text="Password:"/>
-    <PasswordField fx:id="passwordField"/>
+        <Label text="Password:" styleClass="form-label"/>
+        <PasswordField fx:id="passwordField" styleClass="password-field"/>
+    </VBox>
 
-    <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 10 0 0 0;">
-        <Label fx:id="statusLabel" text="" style="-fx-text-fill: red;" HBox.hgrow="ALWAYS"/>
-        <Button text="Cancel" onAction="#handleCancel"/>
-        <Button text="Save Student" onAction="#handleSave" style="-fx-background-color: #28a745; -fx-text-fill: white;"/>
+    <HBox styleClass="button-bar">
+        <Label fx:id="statusLabel" text="" styleClass="status-label" HBox.hgrow="ALWAYS"/>
+
+        <Button text="Cancel" onAction="#handleCancel" styleClass="cancel-button"/>
+        <Button text="Save Student" onAction="#handleSave" styleClass="save-button"/>
     </HBox>
 
 </VBox>

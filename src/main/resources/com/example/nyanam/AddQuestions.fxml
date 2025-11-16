@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Imports for all JavaFX components used -->
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,88 +11,56 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<!-- Root container, VBox, with controller and stylesheet references -->
 <VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.nyanam.AddQuestionsController"
-      alignment="TOP_CENTER" spacing="15" styleClass="root"
-      stylesheets="@Dashboard.css">
+      styleClass="root" stylesheets="@AddQuestions.css">
 
-    <!--
-      *** FIX ***
-      The <fx:definitions> block has been removed to avoid the parsing error.
-      The ToggleGroup will now be created in the controller's initialize() method.
-    -->
-
-    <!-- Padding for the whole window -->
-    <padding>
-        <Insets top="20" right="40" bottom="20" left="40"/>
-    </padding>
-
-    <!-- Title label, bound to fx:id -->
     <Label fx:id="examTitleLabel" text="Add Questions to Exam" styleClass="header-label-small"/>
 
-    <!-- Question Details Area -->
-    <VBox spacing="10" style="-fx-border-color: #ccc; -fx-padding: 15; -fx-border-radius: 5;">
+    <VBox styleClass="form-box">
 
-        <!-- Question Type and Marks -->
         <HBox spacing="20" alignment="CENTER_LEFT">
-            <Label text="Question Type:" />
-            <ChoiceBox fx:id="questionTypeChoiceBox">
-                <!-- Items will be added in controller -->
-            </ChoiceBox>
+            <Label text="Question Type:" styleClass="form-label"/>
+            <ChoiceBox fx:id="questionTypeChoiceBox" styleClass="choice-box"/>
 
-            <Label text="Marks:" />
-            <Spinner fx:id="marksSpinner" min="1" max="100" initialValue="1" editable="true" prefWidth="80"/>
+            <Label text="Marks:" styleClass="form-label"/>
+            <Spinner fx:id="marksSpinner" min="1" max="100" initialValue="1" editable="true" prefWidth="80" styleClass="spinner"/>
         </HBox>
 
-        <!-- Question Text Area -->
-        <Label text="Question Text:"/>
-        <TextArea fx:id="questionTextArea" promptText="Enter the full question here..." wrapText="true" prefHeight="100"/>
+        <Label text="Question Text:" styleClass="form-label"/>
+        <TextArea fx:id="questionTextArea" promptText="Enter the full question here..." wrapText="true" prefHeight="100" styleClass="text-area"/>
 
-        <!-- MCQ Options Area - Only visible if MCQ is selected -->
         <VBox fx:id="mcqOptionsVBox" spacing="8" managed="false" visible="false">
-            <Label text="MCQ Options (Select the correct answer):"/>
+            <Label text="MCQ Options (Select the correct answer):" styleClass="form-label"/>
 
-            <!-- Option 1 -->
             <HBox spacing="10" alignment="CENTER_LEFT">
-                <!-- FIX: 'toggleGroup' property removed -->
-                <RadioButton fx:id="option1Radio" />
-                <TextField fx:id="option1Field" promptText="Option A" HBox.hgrow="ALWAYS"/>
+                <RadioButton fx:id="option1Radio" styleClass="radio-button"/>
+                <TextField fx:id="option1Field" promptText="Option A" HBox.hgrow="ALWAYS" styleClass="text-field"/>
             </HBox>
 
-            <!-- Option 2 -->
             <HBox spacing="10" alignment="CENTER_LEFT">
-                <!-- FIX: 'toggleGroup' property removed -->
-                <RadioButton fx:id="option2Radio" />
-                <TextField fx:id="option2Field" promptText="Option B" HBox.hgrow="ALWAYS"/>
+                <RadioButton fx:id="option2Radio" styleClass="radio-button"/>
+                <TextField fx:id="option2Field" promptText="Option B" HBox.hgrow="ALWAYS" styleClass="text-field"/>
             </HBox>
 
-            <!-- Option 3 -->
             <HBox spacing="10" alignment="CENTER_LEFT">
-                <!-- FIX: 'toggleGroup' property removed -->
-                <RadioButton fx:id="option3Radio" />
-                <TextField fx:id="option3Field" promptText="Option C" HBox.hgrow="ALWAYS"/>
+                <RadioButton fx:id="option3Radio" styleClass="radio-button"/>
+                <TextField fx:id="option3Field" promptText="Option C" HBox.hgrow="ALWAYS" styleClass="text-field"/>
             </HBox>
 
-            <!-- Option 4 -->
             <HBox spacing="10" alignment="CENTER_LEFT">
-                <!-- FIX: 'toggleGroup' property removed -->
-                <RadioButton fx:id="option4Radio" />
-                <TextField fx:id="option4Field" promptText="Option D" HBox.hgrow="ALWAYS"/>
+                <RadioButton fx:id="option4Radio" styleClass="radio-button"/>
+                <TextField fx:id="option4Field" promptText="Option D" HBox.hgrow="ALWAYS" styleClass="text-field"/>
             </HBox>
         </VBox>
 
-        <!-- Add Question Button -->
-        <Button text="Add This Question to Exam" onAction="#handleAddQuestion" styleClass="dashboard-button" maxWidth="Infinity"/>
+        <Button text="Add This Question to Exam" onAction="#handleAddQuestion" styleClass="add-question-button"/>
     </VBox>
 
-    <!-- Status Label for feedback -->
-    <Label fx:id="statusLabel" styleClass="status-label" textFill="green"/>
+    <Label fx:id="statusLabel" styleClass="status-label"/>
 
-    <!-- Finish Button -->
     <VBox VBox.vgrow="ALWAYS" alignment="BOTTOM_RIGHT">
-        <Button text="Finish &amp; Close" onAction="#handleFinish" styleClass="logout-button" prefWidth="180"/>
+        <Button text="Finish &amp; Close" onAction="#handleFinish" styleClass="finish-button"/>
     </VBox>
 
 </VBox>
-

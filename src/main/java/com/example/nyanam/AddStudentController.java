@@ -54,7 +54,7 @@ public class AddStudentController {
 
     @FXML
     private void handleCancel() {
-        // Get the stage (window) and close it
+
         Stage stage = (Stage) fullNameField.getScene().getWindow();
         stage.close();
     }

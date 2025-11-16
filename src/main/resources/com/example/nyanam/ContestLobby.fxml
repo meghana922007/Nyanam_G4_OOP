@@ -10,27 +10,28 @@
 <VBox xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.nyanam.ContestLobbyController"
-      alignment="TOP_CENTER" spacing="20"
-      style="-fx-background-color: #f4f4f4; -fx-padding: 30; -fx-font-family: 'Arial';">
+      stylesheets="@ContestLobby.css" styleClass="root">
 
-    <Label text="Competitive Campus" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
-    <Label text="Select an active contest to join." style="-fx-font-size: 14px; -fx-text-fill: #555;"/>
+    <Label text="Competitive Campus" styleClass="page-title"/>
+    <Label text="Select an active contest to join." styleClass="page-subtitle"/>
 
-    <TableView fx:id="contestTableView" prefHeight="400" VBox.vgrow="ALWAYS">
+    <TableView fx:id="contestTableView" prefHeight="400" VBox.vgrow="ALWAYS" styleClass="table-view">
         <columns>
             <TableColumn fx:id="contestNameCol" text="Contest Name" prefWidth="300"/>
-            <TableColumn fx:id="startTimeCol" text="Start Time" prefWidth="180" style="-fx-alignment: CENTER;"/>
-            <TableColumn fx:id="endTimeCol" text="End Time" prefWidth="180" style="-fx-alignment: CENTER;"/>
-            <TableColumn fx:id="questionCountCol" text="# Questions" prefWidth="100" style="-fx-alignment: CENTER;"/>
+            <TableColumn fx:id="startTimeCol" text="Start Time" prefWidth="180"/>
+            <TableColumn fx:id="endTimeCol" text="End Time" prefWidth="180"/>
+            <TableColumn fx:id="questionCountCol" text="# Questions" prefWidth="100"/>
         </columns>
     </TableView>
 
-    <HBox alignment="CENTER_LEFT" spacing="10">
-        <Label fx:id="statusLabel" text="" style="-fx-font-size: 14px; -fx-text-fill: red;" HBox.hgrow="ALWAYS"/>
+    <HBox styleClass="action-bar">
+        <Label fx:id="statusLabel" text="" styleClass="status-label" HBox.hgrow="ALWAYS"/>
+
         <VBox HBox.hgrow="ALWAYS"/> <Button fx:id="backButton" text="Back to Dashboard" onAction="#handleBack"
-                                            style="-fx-font-size: 14px; -fx-padding: 8 15; -fx-background-color: #555; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;"/>
+                                            styleClass="back-button"/>
+
         <Button fx:id="joinButton" text="Join Contest" onAction="#handleJoinContest"
-                style="-fx-font-size: 14px; -fx-padding: 8 15; -fx-background-color: #28a745; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;"/>
+                styleClass="join-button"/>
     </HBox>
 
 </VBox>
